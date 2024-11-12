@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Oregon Ducks Hat",
+      "price": "$25.00",
+      "images": ["hat.webp", "IMG_1449.jpg"]
+    },
+    {
+      "name": "Classic Baseball Cap",
+      "price": "$20.00",
+      "images": ["hat.webp", "IMG_1449.jpg"]
+    },
+    {
+      "name": "Vintage Fedora",
+      "price": "$35.00",
+      "images": ["hat.webp", "IMG_1449.jpg"]
+    }
+  ]
