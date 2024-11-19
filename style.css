@@ -30,6 +30,20 @@ header {
     background: transparent;
     z-index: 2;
 }
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    text-align: right;
+    color: #faf5f5;
+    font-size: 1.5rem;
+}
+.social-links {
+    position: absolute; /* Allows precise positioning */
+    top: 10px; /* Adjusts vertical position */
+    right: 150px; /* Adjusts horizontal position */
+    display: flex;
+}
+
 
 header h1 {
     font-family: 'Cormorant Garamond', serif;
@@ -46,7 +60,7 @@ header h1 {
     background-image: url('barkley2.jpg');
     background-size: cover;
     background-position: center;
-    height: 800px; /* Full viewport height */
+    height: 1000px; /* Full viewport height */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,6 +87,20 @@ header h1 {
 .landing-image h1 {
     position: relative;
     z-index: 2;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #f8f3f3;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 
@@ -149,10 +177,10 @@ button {
 
 .landing-image2 {
     position: relative;
-    background-image: url('Eddie Jones2.jpg');
+    background-image: url('Eddie Jones2.JPG');
     background-size: cover;
     background-position: center;
-    height: 800px; /* Full viewport height */
+    height: 1000px; /* Full viewport height */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -177,6 +205,12 @@ footer {
 
 
 /* ////////// different viewports */
+@media (max-width: 1800px) {
+    .social-links {
+        right: 150px; /* Adjusts horizontal position */
+    }
+}
+
 
 @media (max-width: 1677px) {
     .grid {
@@ -186,6 +220,9 @@ footer {
     }
     .product{
         width: 100%; /* Take full width on small screens */
+    }
+    .social-links {
+        right: 100px; /* Adjusts horizontal position */
     }
 }
 
@@ -197,5 +234,8 @@ footer {
     }
     .product{
         width: 100%; /* Take full width on small screens */
+    }
+    .social-links {
+        right: 75px; /* Adjusts horizontal position */
     }
 }
