@@ -238,7 +238,7 @@ footer {
     .social-links {
         right: 25px; /* Adjusts horizontal position */
     }
-    header h1 {
+    .header h1 {
         font-family: 'Cormorant Garamond', serif;
         font-size: 7rem;
         font-weight: 600;
