@@ -226,7 +226,7 @@ footer {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     .grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -236,6 +236,11 @@ footer {
         width: 100%; /* Take full width on small screens */
     }
     .social-links {
-        right: 75px; /* Adjusts horizontal position */
+        right: 25px; /* Adjusts horizontal position */
+    }
+    header h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 7rem;
+        font-weight: 600;
     }
 }
