@@ -47,12 +47,6 @@ fetch('hats.json')
                 // Immediately show the next image on hover
                 currentIndex = (currentIndex + 1) % totalImages;
                 slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Start sliding on interval
-                intervalId = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % totalImages; // Loop through images
-                    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-                }, 3000); // Adjust the delay if needed
             }
 
             // Function to stop the slider and reset to the default image
