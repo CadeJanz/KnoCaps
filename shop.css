@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-/* body {
+body {
     font-family: Arial, sans-serif;
     background-color: rgb(148, 60, 219);
     background-size: cover; 
@@ -17,32 +17,8 @@
     padding: 0; 
     overflow-x: hidden; 
     box-sizing: border-box; 
-} */
-
-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    margin: 0rem;
-    overflow: hidden;
-
-}
-#image-track img{
-    width: 35vmin;
-    height: 56vmin;
-    object-fit: cover;
-    object-position: 100% 50%;
 }
 
-#image-track{
-    display: flex;
-    gap: 4vmin;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(0%, -25%)
-
-}
 
 header {
     position: absolute;
@@ -110,7 +86,7 @@ h1 .letter-image {
 
 /* /////  product grid styling*/ 
 
-/* .product-grid {
+.product-grid {
     text-align: center;
     background-color: whitesmoke;
     margin-top: 15em;
@@ -159,7 +135,7 @@ h1 .letter-image {
 
 .product img {
     width: 100%;
-} */
+}
 
 .product p {
     margin: 0.5em 0;
