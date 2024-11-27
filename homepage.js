@@ -6,7 +6,7 @@ fetch('hats.json')
         const productContainer = document.getElementById('product-container');
         
         // Loop through the first 3 products
-        products.slice(0, 3).forEach(product => {  // Use slice to get the first 3 products
+        products.slice(0, 4).forEach(product => {  // Use slice to get the first 3 products
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
             

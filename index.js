@@ -11,9 +11,11 @@ fetch('hats.json')
         products.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
+            productDiv.classList.add('backgrounds');
             
             const imageSlider = document.createElement('div');
             imageSlider.classList.add('image-slider');
+            imageSlider.classList.add('hidden');
             // imageSlider.setAttribute('data-mouse-down-at', '0'); // Add the attribute
             // imageSlider.setAttribute('data-prev-percentage','0');
 
@@ -122,8 +124,49 @@ fetch('hats.json')
         //         image.style.objectPosition = `${nextPercentage+ 100}% 50%`;
         //     }
         // };
-
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach((entry) =>{
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else{
+                    entry.target.classList.remove('show');
+                }
+            });
+            
         });
+        
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((e1) => observer.observe(e1));
+        });
+
+
+
+
+        const backgrounds = document.querySelectorAll('.backgrounds');
+        const highlights = document.querySelectorAll('.highlights')
+
+        // Array of colors to cycle through
+        const highlightcolors = ['#2F3C7E', '#2C5F2D', '#330000', '#31473A', '#CC313D'];
+        const backgroundcolors =['#FBEAEB', '#97BC62','#73605B','#EDF4F2','#F7C5CC']
+
+        let colorIndex = 0; // Index to track the current color
+
+        // Function to change the background color
+        function changeColor() {
+            colorIndex = (colorIndex + 1) % highlightcolors.length; // Cycle through the colors
+            highlights.forEach(box => {
+                box.style.color = highlightcolors[colorIndex]; // Set the new color
+            });
+            backgrounds.forEach(box =>{
+                box.style.backgroundColor = backgroundcolors[colorIndex];
+            });
+        }
+
+         // Change the color every 5 seconds
+        setInterval(changeColor, 5000);
+
+
+
     })
     .catch(error => {
         console.error('Error fetching the products:', error);
