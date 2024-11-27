@@ -6,17 +6,42 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: rgb(148, 60, 219);
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
     color: #333;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    box-sizing: border-box; /* Include padding and borders in element size */
+    margin: 0; 
+    padding: 0; 
+    overflow-x: hidden; 
+    box-sizing: border-box; 
+} */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    margin: 0rem;
+    overflow: hidden;
+
+}
+#image-track img{
+    width: 35vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
+
+#image-track{
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -25%)
+
 }
 
 header {
@@ -85,7 +110,7 @@ h1 .letter-image {
 
 /* /////  product grid styling*/ 
 
-.product-grid {
+/* .product-grid {
     text-align: center;
     background-color: whitesmoke;
     margin-top: 15em;
@@ -107,11 +132,11 @@ h1 .letter-image {
 .product {
     background-color: whitesmoke;
     border-radius: 20px;
-    width: 550px; /* Adjust to your desired width */
+    width: 550px; 
     overflow: hidden;
-    position: relative; /* Ensure proper clipping */
-    margin: 10px; /* Remove extra space */
-    padding: 0px; /* Remove extra space */
+    position: relative; 
+    margin: 10px; 
+    padding: 0px; 
     
     
     
@@ -123,18 +148,18 @@ h1 .letter-image {
 }
 
 .image-slider img {
-    width: 100%; /* Make each image take up the full width of the container */
+    width: 100%; 
     max-width: 100%;
     border-radius: 8px;
-    flex-shrink: 0; /* Prevent images from resizing */
-    margin: 0; /* Ensure no margin on the images */
-    padding: 3px; /* Ensure no padding on the images */
-    box-sizing: border-box; /* Prevent unexpected spacing issues */
+    flex-shrink: 0; 
+    margin: 0; 
+    padding: 3px; 
+    box-sizing: border-box; 
 }
 
 .product img {
     width: 100%;
-}
+} */
 
 .product p {
     margin: 0.5em 0;
