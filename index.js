@@ -66,64 +66,59 @@ fetch('hats.json')
                 slider.style.transform = `translateX(0)`;
             }
 
+            // Function to extract color from an image
+            function getColorFromImage(imageElement, x, y) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Set canvas size to match the image
+                canvas.width = imageElement.width;
+                canvas.height = imageElement.height;
+
+                // Draw the image onto the canvas
+                ctx.drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+
+                // Get pixel data at the specified coordinates
+                const pixelData = ctx.getImageData(x, y, 1, 1).data;
+                const r = pixelData[0];
+                const g = pixelData[1];
+                const b = pixelData[2];
+                const a = pixelData[3] / 255;
+
+                // Return the color in RGBA format
+                return `rgba(${r}, ${g}, ${b}, ${a})`;
+            }
+
+            // Function to handle mouse movement over the image
+            function onImageHover(event) {
+                const imageElement = event.target;
+
+                // Get the relative position of the mouse on the image
+                const rect = imageElement.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                // Get the color at the mouse position
+                const color = getColorFromImage(imageElement, x, y);
+                
+
+                // (Optional) Display the color in a div or tooltip
+                // const colorDisplay = document.getElementById('colorDisplay');
+                // colorDisplay.style.backgroundColor = color;
+                const backgrounds = document.querySelectorAll('.backgrounds');
+                const highlights = document.querySelectorAll('.highlights')
+                // colorDisplay.textContent = color;
+                // backgrounds.forEach(box =>{
+                //     box.style.backgroundColor = color;
+                // });
+            }
+
             // Add hover event listeners to the current `.product` container
             productDiv.addEventListener('mouseenter', startSlider); // Start sliding on hover
             productDiv.addEventListener('mouseleave', stopSlider);
+            productDiv.addEventListener('mousemove', onImageHover); // Get color on hover
             
 
-        
-
-        // const track = document.getElementById("image-track");
-
-        // window.onmousedown = e => {
-        //     track.dataset.mouseDownAt = e.clientX;
-        // };
-
-        // window.onmouseup = () => {
-        //     track.dataset.mouseDownAt = "0";
-        //     track.dataset.prevPercentage = track.dataset.percentage;
-        // };
-
-        // window.onmousemove = e => {
-        //     if (track.dataset.mouseDownAt === "0") return;
-
-        //     const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        //         maxDelta = window.innerWidth / 2;
-
-        //     const percentage = (mouseDelta / maxDelta) * -100,
-        //         nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-
-        //     // Ensure nextPercentage is between 0 and -100
-        //     const clampedPercentage = Math.max(-100, Math.min(0, nextPercentage));
-
-        //     track.dataset.percentage = clampedPercentage;
-
-        //     // Apply the animation with the clamped percentage
-        //     track.animate(
-        //         [
-        //             { transform: `translate(${track.dataset.percentage || 0}%, -25%)` }, // Starting point
-        //             { transform: `translate(${clampedPercentage}%, -25%)` } // End point
-        //         ],
-        //         {
-        //             duration: 1200,
-        //             fill: "forwards"
-        //         }
-        //     );
-
-        //     for (const image of track.getElementsByTagName("img")) {
-        //         // image.animate(
-        //         //     [
-        //         //         { objectPosition: `${track.dataset.percentage || 0}% 50%` }, // Starting position
-        //         //         { objectPosition: `${clampedPercentage}% 50%` } // End position
-        //         //     ],
-        //         //     {
-        //         //         duration: 1200,
-        //         //         fill: "forwards"
-        //         //     }
-        //         // );
-        //         image.style.objectPosition = `${nextPercentage+ 100}% 50%`;
-        //     }
-        // };
         const observer = new IntersectionObserver((entries)=>{
             entries.forEach((entry) =>{
                 if(entry.isIntersecting) {

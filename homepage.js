@@ -12,6 +12,7 @@ fetch('hats.json')
             
             const imageSlider = document.createElement('div');
             imageSlider.classList.add('image-slider');
+            imageSlider.classList.add('hidden');
             
             product.images.forEach(image => {
                 const img = document.createElement('img');
@@ -61,6 +62,20 @@ fetch('hats.json')
             // Add hover event listeners to the current `.product` container
             productDiv.addEventListener('mouseenter', startSlider); // Start sliding on hover
             productDiv.addEventListener('mouseleave', stopSlider);  // Reset to the default image when not hovering
+
+            const observer = new IntersectionObserver((entries)=>{
+                entries.forEach((entry) =>{
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    } else{
+                        entry.target.classList.remove('show');
+                    }
+                });
+                
+            });
+            
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((e1) => observer.observe(e1));
         });
     })
     .catch(error => {
